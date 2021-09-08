@@ -8,7 +8,27 @@
 </head>
 <body>
   <ul>
+    {% assign init_year = "" | split: ',' %}
+
     {% for post in site.posts %}
+
+      {% assign year = post.date | date: '%Y' %}
+      {% assign have_year = false %}
+
+      {% assign year_item = year | split: ',' %}
+      {% assign year_arr = init_year | concat: year_item %}
+      
+      {% for post_year in init_year %}
+        {% if post_year === year %}
+          {{ have_year = true }}
+        {% endfor %}
+      {% endfor %}
+
+      {% if have_year %}
+          <li>{{ year }}</li>
+      {% elseif %}
+          {{ init_year = year_arr }}
+      {% endfor %}
       <li>
         <a href="{{ post.url }}">{{ post.title }}</a>
       </li>
