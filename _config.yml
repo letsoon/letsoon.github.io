@@ -1,2 +1,11 @@
 title: letsoon
 url: letsoon.github.io
+
+sass:
+    style: compressed
+    sass_dir: _sass
+
+plugins:
+  - jekyll-coffeescript
+  - jekyll-sass-converter
+  - kramdown-syntax-coderay

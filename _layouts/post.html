@@ -1,0 +1,9 @@
+{% include header.html %}
+    <article class="box">
+        <h3 class="title">{{page.title}}</h3>
+        <p class="date">{{page.date | date:"%Y-%m-%d"}}</p>
+        <div class="markdown-body">
+            {{ content }}
+        </div>
+    </article>
+{% include footer.html %}

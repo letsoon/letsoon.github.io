@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{site.title}}</title>
-</head>
-<body>
-  <ul>
+{% include header.html %}
+  <ul id="posts" class="box">
     {% assign init_year = "" | split: ',' %}
 
     {% for post in site.posts %}
@@ -17,22 +9,25 @@
 
       {% assign year_item = year | split: ',' %}
       {% assign year_arr = init_year | concat: year_item %}
-      
+
       {% for post_year in init_year %}
-        {% if post_year === year %}
+        {% if post_year == year %}
           {{ have_year = true }}
-        {% endfor %}
+        {% endif %}
       {% endfor %}
 
-      {% if have_year %}
-          <li>{{ year }}</li>
-      {% elseif %}
-          {{ init_year = year_arr }}
-      {% endfor %}
-      <li>
-        <a href="{{ post.url }}">{{post.date}}-{{ post.title }}</a>
+      {% if have_year or init_year.size == 0 %}
+        <li class="year">{{ year }}</li>
+      {% endif %}
+      
+      {{ init_year = year_arr }}
+
+      <li class="post">
+        <a href="{{ post.url }}">
+          <span class="date">{{post.date | date: '%Y-%m-%d'}}</span>
+          <span class="title">{{post.title}}</span>
+        </a>
       </li>
     {% endfor %}
   </ul>
-</body>
-</html>
+{% include footer.html %}
