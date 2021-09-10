@@ -1,0 +1,8 @@
+{% include header.html %}
+    <div class="box link">
+      {{friends | join: ','}}
+      {% for link in site.friends %}
+        <a href="{{link.href}}" class="link-item" target="_blank">{{link.title}}</a>
+      {% endfor %}
+    </div>
+{% include footer.html %}

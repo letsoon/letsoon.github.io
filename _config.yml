@@ -1,6 +1,11 @@
 title: letsoon
 url: letsoon.github.io
 
+friends:
+  - 
+    title: 素锦
+    href: https://www.isujin.com
+
 sass:
     style: compressed
     sass_dir: _sass
@@ -8,4 +13,5 @@ sass:
 plugins:
   - jekyll-coffeescript
   - jekyll-sass-converter
-  - kramdown-syntax-coderay
+
+

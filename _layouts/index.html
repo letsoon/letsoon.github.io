@@ -8,19 +8,19 @@
       {% assign have_year = false %}
 
       {% assign year_item = year | split: ',' %}
-      {% assign year_arr = init_year | concat: year_item %}
 
       {% for post_year in init_year %}
         {% if post_year == year %}
-          {{ have_year = true }}
+          {% assign have_year = true %}
         {% endif %}
       {% endfor %}
 
-      {% if have_year or init_year.size == 0 %}
+      {% if have_year == false or init_year.size == 0  %}
         <li class="year">{{ year }}</li>
       {% endif %}
       
-      {{ init_year = year_arr }}
+      {% assign init_year = init_year | uniq | concat: year_item %}
+
 
       <li class="post">
         <a href="{{ post.url }}">

@@ -66,9 +66,21 @@ article{
   }
 }
 
-.about{
+.about, .link{
   margin-top: 50px;
   padding: 20px;
+}
+
+.link .link-item{
+    display: inline-block;
+    font-size: 14px;
+    min-width: 100px;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #eee;
+    color: #666;
+    letter-spacing: 1px;
+    border-radius: 3px;
 }
 
 .tag-list{
